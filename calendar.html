@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Календарь — Ритм</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo">🎯 Ритм</div>
+      <div class="nav-links">
+        <a href="index.html">Главная</a>
+        <a href="method.html">Метод</a>
+        <a href="board.html">Доска</a>
+        <a href="calendar.html" aria-current="page">Календарь</a>
+        <a href="stats.html">Статистика</a>
+      </div>
+      <div class="header-actions">
+        <button id="export-btn" class="icon-btn" title="Экспорт">💾</button>
+        <button id="import-btn" class="icon-btn" title="Импорт">📥</button>
+        <input type="file" id="import-input" accept=".json" style="display: none;">
+        <button id="theme-toggle" class="icon-btn" title="Сменить тему">🌙</button>
+      </div>
+    </nav>
+  </header>
+  <main class="container">
+    <section>
+      <h2>Календарь фокуса</h2>
+      <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: var(--space-md);">
+        <button id="move-today-btn" class="btn btn-secondary btn-sm">➡️ На завтра</button>
+        <button id="open-profile-btn" class="btn btn-sm">⚙️ Профиль</button>
+      </div>
+      <div class="calendar-header-nav">
+        <button id="prev-month-btn" class="icon-btn small">←</button>
+        <h3 id="current-month-title" class="month-title">Месяц</h3>
+        <button id="next-month-btn" class="icon-btn small">→</button>
+      </div>
+      <div class="calendar-area" id="calendar-area">
+        <div class="calendar-grid" id="calendar-grid"></div>
+        <div class="day-panel">
+          <button class="panel-close" id="panel-close-btn">&times;</button>
+          <h3 id="panel-day-title">Выберите день</h3>
+          <div class="day-summary" id="day-summary">Итого: 0ч</div>
+          <div class="timeline" id="day-timeline"></div>
+          <div class="add-block-row">
+            <div class="form-group"><label>Тип</label><select id="new-type" class="form-select"><option value="work">Работа</option><option value="meal">Еда</option><option value="break">Перерыв</option></select></div>
+            <div class="form-group"><label>Название</label><input type="text" id="new-title" class="form-input" placeholder="Блок"></div>
+            <div class="form-group"><label>Часы</label><input type="number" id="new-hours" class="form-input" step="0.5" min="0.25" value="1"></div>
+          </div>
+          <div style="display: flex; gap: 0.5rem; margin-top: var(--space-sm);">
+            <button id="save-day-btn" class="btn btn-sm" style="flex:1;">💾 Сохранить</button>
+            <button id="reset-day-btn" class="btn btn-secondary btn-sm" style="flex:1;">🔄 Сбросить</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <div class="month-picker-overlay" id="month-picker"><div class="month-picker-card"><div class="picker-year" id="picker-year">2024</div><div class="picker-grid" id="picker-grid"></div></div></div>
+  <div class="modal-overlay" id="profile-modal">
+    <div class="modal-card">
+      <button class="modal-close">&times;</button>
+      <h2 class="modal-title">Профиль ритма</h2>
+      <form id="profile-form" class="profile-form">
+        <div class="profile-row"><div class="form-group"><label>Пробуждение</label><input type="time" id="prof-wake" class="form-input" value="07:00"></div><div class="form-group"><label>Сон</label><input type="time" id="prof-sleep" class="form-input" value="23:00"></div></div>
+        <div class="profile-row"><div class="form-group"><label>Начало работы</label><input type="time" id="prof-work-s" class="form-input" value="09:00"></div><div class="form-group"><label>Конец</label><input type="time" id="prof-work-e" class="form-input" value="15:00"></div></div>
+        <div class="profile-row"><div class="form-group"><label>Завтрак</label><input type="time" id="prof-meal1" class="form-input" value="08:00"></div><div class="form-group"><label>Обед</label><input type="time" id="prof-meal2" class="form-input" value="13:00"></div></div>
+        <div class="profile-row"><div class="form-group"><label>Ужин</label><input type="time" id="prof-meal3" class="form-input" value="19:00"></div><div class="form-group"><label>Перерыв (мин)</label><input type="number" id="prof-break" class="form-input" value="90"></div></div>
+        <div class="form-group"><label>Макс. фокус (ч)</label><input type="number" id="prof-max-focus" class="form-input" value="4"></div>
+        <button type="submit" class="btn" style="width: 100%; margin-top: 1rem;">Сохранить</button>
+      </form>
+    </div>
+  </div>
+  <div class="mobile-bottom-nav">
+    <a href="index.html" class="nav-item"><span class="nav-icon">🏠</span><span class="nav-label">Главная</span></a>
+    <a href="method.html" class="nav-item"><span class="nav-icon">💡</span><span class="nav-label">Метод</span></a>
+    <a href="board.html" class="nav-item"><span class="nav-icon">📋</span><span class="nav-label">Доска</span></a>
+    <a href="calendar.html" class="nav-item" aria-current="page"><span class="nav-icon">📅</span><span class="nav-label">Календарь</span></a>
+    <a href="stats.html" class="nav-item"><span class="nav-icon">🔥</span><span class="nav-label">Статистика</span></a>
+  </div>
+  <footer>Ритм v17.0 &copy; 2024</footer>
+  <script src="app.js"></script>
+</body>
+</html>

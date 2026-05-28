@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Статистика — Ритм</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo">🎯 Ритм</div>
+      <div class="nav-links">
+        <a href="index.html">Главная</a>
+        <a href="method.html">Метод</a>
+        <a href="board.html">Доска</a>
+        <a href="calendar.html">Календарь</a>
+        <a href="stats.html" aria-current="page">Статистика</a>
+      </div>
+      <div class="header-actions">
+        <button id="theme-toggle" class="icon-btn" title="Сменить тему">🌙</button>
+      </div>
+    </nav>
+  </header>
+  <main class="container">
+    <section>
+      <h2>Твой ритм</h2>
+      <p class="subtitle">Отслеживай прогресс, не прерывай цепочку и находи паттерны.</p>
+      <div class="stats-cards">
+        <div class="stat-card"><div class="stat-value" id="streak-value">0</div><div class="stat-label">🔥 Дней стрик</div></div>
+        <div class="stat-card"><div class="stat-value" id="total-hours-value">0ч</div><div class="stat-label">⏱️ В фокусе</div></div>
+        <div class="stat-card"><div class="stat-value" id="max-streak-value">0</div><div class="stat-label">👑 Рекорд стрика</div></div>
+      </div>
+      <h3 style="margin-top: 2rem; margin-bottom: 1rem;">Активность за 3 месяца</h3>
+      <div class="heatmap-wrapper">
+        <div class="heatmap-months" id="heatmap-months"></div>
+        <div class="heatmap-grid" id="heatmap-grid"></div>
+        <div class="heatmap-legend">
+          <span>Меньше</span>
+          <div class="heatmap-block empty"></div>
+          <div class="heatmap-block level-1"></div>
+          <div class="heatmap-block level-2"></div>
+          <div class="heatmap-block level-3"></div>
+          <div class="heatmap-block level-4"></div>
+          <span>Больше</span>
+        </div>
+      </div>
+      <h3 style="margin-top: 2rem; margin-bottom: 1rem;">Распределение энергии</h3>
+      <div class="energy-bars-container" id="energy-bars"></div>
+    </section>
+  </main>
+  <div class="mobile-bottom-nav">
+    <a href="index.html" class="nav-item"><span class="nav-icon">🏠</span><span class="nav-label">Главная</span></a>
+    <a href="method.html" class="nav-item"><span class="nav-icon">💡</span><span class="nav-label">Метод</span></a>
+    <a href="board.html" class="nav-item"><span class="nav-icon">📋</span><span class="nav-label">Доска</span></a>
+    <a href="calendar.html" class="nav-item"><span class="nav-icon">📅</span><span class="nav-label">Календарь</span></a>
+    <a href="stats.html" class="nav-item" aria-current="page"><span class="nav-icon">🔥</span><span class="nav-label">Статистика</span></a>
+  </div>
+  <footer>Ритм v17.0 &copy; 2024</footer>
+  <script src="app.js"></script>
+</body>
+</html>

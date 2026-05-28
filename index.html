@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ритм — Управление фокусом</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo">🎯 Ритм</div>
+      <div class="nav-links">
+        <a href="index.html" aria-current="page">Главная</a>
+        <a href="method.html">Метод</a>
+        <a href="board.html">Доска</a>
+        <a href="calendar.html">Календарь</a>
+        <a href="stats.html">Статистика</a>
+      </div>
+      <div class="header-actions">
+        <button id="import-btn" class="icon-btn" title="Загрузить бэкап">📥</button>
+        <input type="file" id="import-input" accept=".json" style="display: none;">
+        <button id="theme-toggle" class="icon-btn" title="Сменить тему">🌙</button>
+      </div>
+    </nav>
+  </header>
+  <main class="container">
+    <section style="min-height: 70vh; display: flex; flex-direction: column; justify-content: center; position: relative;">
+      <canvas id="hero-canvas" style="position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none;"></canvas>
+      <div style="position: relative; z-index: 1;">
+        <h1 id="hero-title">Управляй ритмом, а не временем</h1>
+        <p class="subtitle">Ритм автоматически распределяет задачи по календарю с учетом твоей энергии. Нажми <span class="kbd">Space</span> для эффекта.</p>
+        <a href="board.html" class="btn" style="margin-top: 1.5rem;">Начать работу</a>
+      </div>
+    </section>
+  </main>
+  <div class="mobile-bottom-nav">
+    <a href="index.html" class="nav-item" aria-current="page"><span class="nav-icon">🏠</span><span class="nav-label">Главная</span></a>
+    <a href="method.html" class="nav-item"><span class="nav-icon">💡</span><span class="nav-label">Метод</span></a>
+    <a href="board.html" class="nav-item"><span class="nav-icon">📋</span><span class="nav-label">Доска</span></a>
+    <a href="calendar.html" class="nav-item"><span class="nav-icon">📅</span><span class="nav-label">Календарь</span></a>
+    <a href="stats.html" class="nav-item"><span class="nav-icon">🔥</span><span class="nav-label">Статистика</span></a>
+  </div>
+  <footer>Ритм v17.0 &copy; 2024</footer>
+  <script src="app.js"></script>
+</body>
+</html>
