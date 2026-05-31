@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ритм — Корпоративное пространство</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <nav>
+      <div class="logo">Ритм Корп</div>
+      <div class="nav-links">
+        <a href="index.html">Главная</a>
+        <a href="method.html">Метод</a>
+        <a href="board.html">Личная доска</a>
+        <a href="calendar.html">Календарь</a>
+        <a href="stats.html">Статистика</a>
+        <a href="corporate.html" aria-current="page">Корпоративный</a>
+      </div>
+      <div class="header-actions">
+        <button class="icon-btn" id="theme-toggle" title="Сменить тему">🌙</button>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container" style="position: relative; z-index: 1;">
+    
+    <!-- ========== МАСТЕР ДОСТУПА (ONBOARDING FLOW) ========== -->
+    <div id="flow-container">
+      
+      <!-- Шаг 0: Выбор действия -->
+      <div class="flow-card">
+        <div class="flow-step active" id="step-0">
+          <div class="modal-title">Добро пожаловать в Ритм Корп</div>
+          <div class="modal-subtitle">Управление задачами команды и OKR в одном пространстве.</div>
+          <div class="flow-actions" style="flex-direction: column; gap: 0.8rem;">
+            <button class="btn" id="btn-create-org">🏢 Создать организацию</button>
+            <button class="btn btn-secondary" id="btn-join-org">🔗 Подключиться по коду</button>
+          </div>
+          <div class="hint-box" style="margin-top: 1.5rem;">Подсказка: нажмите <span class="kbd">1</span> или <span class="kbd">2</span> на клавиатуре</div>
+        </div>
+
+        <!-- Шаг Создания 1: Название -->
+        <div class="flow-step" id="step-create-1">
+          <div class="modal-title">Создание пространства</div>
+          <div class="modal-subtitle">Шаг 1 из 3. Введите название вашей организации.</div>
+          <div class="form-group">
+            <label>Название организации</label>
+            <input type="text" class="form-input" id="input-org-name" placeholder="Например: Акме Corp" required>
+          </div>
+          <div class="flow-actions">
+            <button class="btn btn-secondary flow-back" data-target="step-0">Назад</button>
+            <button class="btn flow-next" data-target="step-create-2">Далее</button>
+          </div>
+        </div>
+
+        <!-- Шаг Создания 2: Тариф -->
+        <div class="flow-step" id="step-create-2">
+          <div class="modal-title">Выбор тарифа</div>
+          <div class="modal-subtitle">Шаг 2 из 3. Выберите план для вашей команды.</div>
+          <div class="pricing-grid-mini">
+            <div class="pricing-card selected" data-plan="starter">
+              <h3>Старт</h3>
+              <div style="font-size: 1.5rem; font-weight: 800; margin: 0.5rem 0;">Бесплатно</div>
+              <div style="font-size: 0.8rem; color: var(--text-muted);">До 5 участников</div>
+            </div>
+            <div class="pricing-card" data-plan="business">
+              <h3>Бизнес</h3>
+              <div style="font-size: 1.5rem; font-weight: 800; margin: 0.5rem 0;">$9/мес</div>
+              <div style="font-size: 0.8rem; color: var(--text-muted);">До 50 участников</div>
+            </div>
+            <div class="pricing-card" data-plan="enterprise">
+              <h3>Корп</h3>
+              <div style="font-size: 1.5rem; font-weight: 800; margin: 0.5rem 0;">Кастом</div>
+              <div style="font-size: 0.8rem; color: var(--text-muted);">Безлимит</div>
+            </div>
+          </div>
+          <div class="flow-actions">
+            <button class="btn btn-secondary flow-back" data-target="step-create-1">Назад</button>
+            <button class="btn flow-next" data-target="step-create-3">Далее</button>
+          </div>
+        </div>
+
+        <!-- Шаг Создания 3: Код создан -->
+        <div class="flow-step" id="step-create-3">
+          <div class="modal-title">Организация создана! 🎉</div>
+          <div class="modal-subtitle">Шаг 3 из 3. Отправьте этот код вашей команде.</div>
+          <div class="code-display" id="generated-code">--------</div>
+          <div class="flow-actions">
+            <button class="btn" id="btn-enter-dashboard">Войти в дашборд</button>
+          </div>
+        </div>
+
+        <!-- Шаг Подключения 1: Имя -->
+        <div class="flow-step" id="step-join-1">
+          <div class="modal-title">Подключение к команде</div>
+          <div class="modal-subtitle">Шаг 1 из 2. Как вас зовут?</div>
+          <div class="form-group">
+            <label>Ваше имя</label>
+            <input type="text" class="form-input" id="input-user-name" placeholder="Иван Иванов" required>
+          </div>
+          <div class="flow-actions">
+            <button class="btn btn-secondary flow-back" data-target="step-0">Назад</button>
+            <button class="btn flow-next" data-target="step-join-2">Далее</button>
+          </div>
+        </div>
+
+        <!-- Шаг Подключения 2: Ввод кода -->
+        <div class="flow-step" id="step-join-2">
+          <div class="modal-title">Ввод кода</div>
+          <div class="modal-subtitle">Шаг 2 из 2. Введите код, который дал вам администратор.</div>
+          <div class="form-group">
+            <label>Код организации</label>
+            <input type="text" class="form-input" id="input-join-code" placeholder="12345678" required>
+          </div>
+          <div class="flow-actions">
+            <button class="btn btn-secondary flow-back" data-target="step-join-1">Назад</button>
+            <button class="btn flow-next" data-target="step-join-3">Подключиться</button>
+          </div>
+        </div>
+
+        <!-- Шаг Подключения 3: Успех -->
+        <div class="flow-step" id="step-join-3">
+          <div class="modal-title">Добро пожаловать! 🤝</div>
+          <div class="modal-subtitle">Вы успешно подключились к пространству.</div>
+          <div class="flow-actions">
+            <button class="btn" id="btn-enter-dashboard-2">Войти в дашборд</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ========== КОРПОРАТИВНЫЙ ДАШБОРД ========== -->
+    <div id="dashboard-container" style="display: none;">
+      
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; flex-wrap: wrap; gap: 1rem;">
+        <div>
+          <h2 id="dash-title" style="margin-bottom: 0;">Пространство: ...</h2>
+          <div class="subtitle">Управление задачами и целями команды</div>
+        </div>
+        <div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
+          <!-- Помодоро Виджет -->
+          <div class="pomodoro-widget">
+            <div class="pomo-display" id="pomo-time">25:00</div>
+            <button class="pomo-btn" id="pomo-toggle">▶</button>
+            <button class="pomo-btn" data-time="25">25м</button>
+            <button class="pomo-btn" data-time="15">15м</button>
+            <button class="pomo-btn" data-time="5">5м</button>
+          </div>
+          <button class="btn btn-secondary btn-sm" id="btn-exit-dashboard">🚪 Выйти</button>
+        </div>
+      </div>
+
+      <!-- Канбан -->
+      <h3 style="margin-bottom: 1rem;">Задачи команды</h3>
+      <div class="kanban-board">
+        <!-- Колонка Очередь -->
+        <div class="kanban-column" data-status="queue">
+          <div class="kanban-title"><span>Очередь</span> <span id="count-queue">0</span></div>
+          <div class="kanban-list" id="list-queue"></div>
+          <div class="kanban-add">
+            <input type="text" id="add-queue-input" placeholder="Новая задача...">
+            <button id="add-queue-btn">+</button>
+          </div>
+        </div>
+        <!-- Колонка В работе -->
+        <div class="kanban-column" data-status="progress">
+          <div class="kanban-title"><span>В работе</span> <span id="count-progress">0</span></div>
+          <div class="kanban-list" id="list-progress"></div>
+        </div>
+        <!-- Колонка Готово -->
+        <div class="kanban-column" data-status="done">
+          <div class="kanban-title"><span>Готово ✅</span> <span id="count-done">0</span></div>
+          <div class="kanban-list" id="list-done"></div>
+        </div>
+      </div>
+
+      <!-- OKR -->
+      <div class="okr-section">
+        <h3 style="margin-bottom: 1rem; margin-top: 2rem;">Цели и ключевые результаты (OKR)</h3>
+        <div id="okr-list"></div>
+        <div class="okr-add-form">
+          <input type="text" class="form-input" id="add-okr-input" placeholder="Новая цель (Objective)...">
+          <button class="btn btn-sm" id="add-okr-btn">+ Добавить цель</button>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- Мобильная навигация (если нужна) -->
+  <div class="mobile-bottom-nav">
+    <a href="index.html" class="nav-item"><span class="nav-icon">🏠</span><span>Главная</span></a>
+    <a href="board.html" class="nav-item"><span class="nav-icon">📋</span><span>Доска</span></a>
+    <a href="calendar.html" class="nav-item"><span class="nav-icon">📅</span><span>Календарь</span></a>
+    <a href="stats.html" class="nav-item"><span class="nav-icon">📊</span><span>Стата</span></a>
+    <a href="corporate.html" class="nav-item" aria-current="page"><span class="nav-icon">🏢</span><span>Корп</span></a>
+  </div>
+
+  <!-- Обязательные скрипты! Убедись, что пути верные -->
+  <script src="app.js"></script>
+</body>
+</html>

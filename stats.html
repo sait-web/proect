@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Статистика — Ритм</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo">Ритм</div>
+      <div class="nav-links">
+        <a href="index.html">Главная</a>
+        <a href="method.html">Метод</a>
+        <a href="board.html">Доска</a>
+        <a href="calendar.html">Календарь</a>
+        <a href="stats.html" aria-current="page">Статистика</a>
+        <a href="corporate.html">Корпоративный</a>
+      </div>
+      <div class="header-actions">
+        <button id="import-btn" class="icon-btn" title="Загрузить бэкап">📥</button>
+        <input type="file" id="import-input" accept=".json" style="display: none;">
+        <button id="theme-toggle" class="icon-btn" title="Сменить тему">🌙</button>
+      </div>
+    </nav>
+  </header>
+  <main class="container">
+    <section>
+      <h2>Твой ритм</h2>
+      <div class="stats-cards">
+        <div class="stat-card"><div class="stat-value" id="streak-value">0</div><div class="stat-label">🔥 Дней стрик</div></div>
+        <div class="stat-card"><div class="stat-value" id="total-hours-value">0ч</div><div class="stat-label">⏱️ В фокусе</div></div>
+        <div class="stat-card"><div class="stat-value" id="max-streak-value">0</div><div class="stat-label">👑 Рекорд стрика</div></div>
+      </div>
+      <h3>Активность (3 месяца)</h3>
+      <div class="heatmap-wrapper"><div class="heatmap-months" id="heatmap-months"></div><div class="heatmap-grid" id="heatmap-grid"></div><div class="heatmap-legend"></div></div>
+      <h3>Распределение энергии</h3>
+      <div class="energy-bars-container" id="energy-bars"></div>
+      
+      
+    </section>
+  </main>
+  <div class="mobile-bottom-nav">
+    <a href="index.html" class="nav-item"><span class="nav-icon">🏠</span><span class="nav-label">Главная</span></a>
+    <a href="method.html" class="nav-item"><span class="nav-icon">💡</span><span class="nav-label">Метод</span></a>
+    <a href="board.html" class="nav-item"><span class="nav-icon">📋</span><span class="nav-label">Доска</span></a>
+    <a href="calendar.html" class="nav-item"><span class="nav-icon">📅</span><span class="nav-label">Календарь</span></a>
+    <a href="stats.html" class="nav-item" aria-current="page"><span class="nav-icon">🔥</span><span class="nav-label">Статистика</span></a>
+    <a href="corporate.html" class="nav-item"><span class="nav-icon">🏢</span><span class="nav-label">Корп.</span></a>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Ритм — Фокус и синхронизация</title>
+  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo">Ритм</div>
+      <div class="nav-links">
+        <a href="index.html" aria-current="page">Главная</a>
+        <a href="method.html">Метод</a>
+        <a href="board.html">Доска</a>
+        <a href="calendar.html">Календарь</a>
+        <a href="stats.html">Статистика</a>
+        <a href="corporate.html">Корпоративный</a>
+      </div>
+      <div class="header-actions">
+        <button id="import-btn" class="icon-btn" title="Загрузить бэкап">📥</button>
+        <input type="file" id="import-input" accept=".json" style="display: none;">
+        <button id="theme-toggle" class="icon-btn" title="Сменить тему">🌙</button>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="hero" style="min-height: 70vh; display: flex; flex-direction: column; justify-content: center; position: relative;">
+      <canvas id="hero-canvas" style="position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none;"></canvas>
+      <div style="position: relative; z-index: 1;">
+        <h1 id="hero-title">Управляй фокусом, а не временем</h1>
+        <p class="subtitle">Ритм автоматически распределяет задачи по календарю с учётом энергии, рабочих часов и перерывов. А для команд — OKR, канбан и помодоро.</p>
+        <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem;">
+          <a href="board.html" class="btn">Личная доска</a>
+          <a href="corporate.html" class="btn btn-secondary">Корпоративный портал →</a>
+        </div>
+        <div class="hint-box" style="margin-top: 2rem;">🖱️ Наведи на фон, нажми <span class="kbd">Space</span> — анимация нагрузки.</div>
+      </div>
+    </section>
+
+    <section class="metrics-section" id="metrics" style="padding: 2rem 0;">
+      <div class="metrics-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem;">
+        <div class="stat-card"><div class="stat-value" data-target="150">0</div><div class="stat-label">Корпоративных клиентов</div></div>
+        <div class="stat-card"><div class="stat-value" data-target="35">0</div><div class="stat-label">Рост эффективности (%)</div></div>
+        <div class="stat-card"><div class="stat-value" data-target="12000">0</div><div class="stat-label">Единиц распределено</div></div>
+      </div>
+    </section>
+
+    <section class="features-section">
+      <h2>Архитектура продукта</h2>
+      <div class="features-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; margin-top: 2rem;">
+        <div class="card-3d"><h3>Балансировка энергии</h3><p>Авто-распределение задач по дням с учётом твоего максимума фокуса и дедлайнов.</p></div>
+        <div class="card-3d"><h3>Умный календарь</h3><p>Генерация таймлайна с учётом сна, работы, еды и перерывов.</p></div>
+        <div class="card-3d"><h3>Корпоративный режим</h3><p>Канбан, OKR, помодоро, управление командами по кодам доступа.</p></div>
+      </div>
+    </section>
+  </main>
+
+  <div class="mobile-bottom-nav">
+    <a href="index.html" class="nav-item" aria-current="page"><span class="nav-icon">🏠</span><span class="nav-label">Главная</span></a>
+    <a href="method.html" class="nav-item"><span class="nav-icon">💡</span><span class="nav-label">Метод</span></a>
+    <a href="board.html" class="nav-item"><span class="nav-icon">📋</span><span class="nav-label">Доска</span></a>
+    <a href="calendar.html" class="nav-item"><span class="nav-icon">📅</span><span class="nav-label">Календарь</span></a>
+    <a href="stats.html" class="nav-item"><span class="nav-icon">🔥</span><span class="nav-label">Статистика</span></a>
+    <a href="corporate.html" class="nav-item"><span class="nav-icon">🏢</span><span class="nav-label">Корп.</span></a>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
